@@ -1,63 +1,70 @@
-# WarrantyVault
+<div align="center">
 
-### An AI-powered digital receipt & warranty wallet
+# ⚡ WarrantyVault
 
-> **Upload a receipt. Extract the purchase. Track the warranty. Ask the assistant.**
+### AI-powered receipt intelligence & warranty management
 
-WarrantyVault turns unstructured purchase documents into structured, searchable
-digital assets.
+**Turn messy receipts into searchable assets, warranty information, and actionable answers.**
 
-Instead of searching through old emails, PDFs and images to answer:
+<br>
 
-> *"Is my laptop still under warranty?"*
+[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![PaddleOCR](https://img.shields.io/badge/PaddleOCR-OCR-00A67E?style=for-the-badge)](https://github.com/PaddlePaddle/PaddleOCR)
 
-WarrantyVault processes the purchase document, extracts the important details,
-stores them as an asset, calculates warranty information and lets you interact
-with your purchases through a natural-language assistant.
+</div>
 
 ---
 
-## The Idea
+## 🧠 The Problem
 
-Receipts are designed for humans to read once — not for software to understand.
+Receipts contain valuable information — but they're usually trapped inside
+images, PDFs, emails and paper documents.
 
-A single receipt may contain:
+Finding something as simple as:
 
-- Product information
-- Seller information
-- Invoice number
-- Order number
-- Purchase date
-- Invoice date
-- Total amount
-- Warranty information
+> **"Is my laptop still under warranty?"**
 
-WarrantyVault converts this:
+can mean manually searching through old files, finding the receipt,
+checking the purchase date, finding the warranty terms and calculating
+whether the warranty is still valid.
+
+### WarrantyVault turns that entire process into a pipeline.
 
 ```text
-┌─────────────────────────┐
-│       RAW RECEIPT       │
-│                         │
-│  Product: Acer Nitro 5  │
-│  Seller: Appario        │
-│  Amount: ₹46,989        │
-│  Invoice: SCCC-699517   │
-│  Date: 29/12/2019       │
-└────────────┬────────────┘
-             │
-             ▼
-       AI DOCUMENT
-        PROCESSING
-             │
-             ▼
-┌─────────────────────────┐
-│    STRUCTURED ASSET     │
-│                         │
-│ Product                 │
-│ Seller                  │
-│ Invoice                 │
-│ Purchase Date           │
-│ Amount                  │
-│ Warranty                │
-│ Documents               │
-└─────────────────────────┘
+             📄 RECEIPT
+                 │
+                 ▼
+        ┌─────────────────┐
+        │  AI / VISION    │
+        │   PROCESSING    │
+        └────────┬────────┘
+                 │
+          extraction fails?
+                 │
+                 ▼
+        ┌─────────────────┐
+        │    PaddleOCR    │
+        │    FALLBACK     │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ STRUCTURED DATA │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ WARRANTY ENGINE │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │  DIGITAL ASSET  │
+        │     WALLET      │
+        └────────┬────────┘
+                 │
+          ┌──────┴──────┐
+          ▼             ▼
+      🔎 SEARCH      🤖 ASSISTANT
