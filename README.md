@@ -2,69 +2,58 @@
 
 # ⚡ WarrantyVault
 
-### AI-powered receipt intelligence & warranty management
+### AI-Powered Receipt Intelligence & Warranty Management
 
-**Turn messy receipts into searchable assets, warranty information, and actionable answers.**
+**From an unstructured receipt to a searchable digital asset — automatically.**
 
 <br>
 
 [![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![React](https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Ollama](https://img.shields.io/badge/Ollama-Local%20LLM-black?style=for-the-badge)](https://ollama.com/)
 [![PaddleOCR](https://img.shields.io/badge/PaddleOCR-OCR-00A67E?style=for-the-badge)](https://github.com/PaddlePaddle/PaddleOCR)
 
 </div>
 
 ---
 
-## 🧠 The Problem
+# The Problem
 
-Receipts contain valuable information — but they're usually trapped inside
-images, PDFs, emails and paper documents.
+Receipts are valuable documents, but they were never designed to be
+machine-readable databases.
 
-Finding something as simple as:
+A single purchase receipt can contain:
+
+- Product information
+- Seller information
+- Invoice / order numbers
+- Purchase dates
+- Prices
+- Warranty information
+- Warranty terms
+- Supporting documents
+
+But this information usually lives inside **images, PDFs, emails and
+scanned documents**.
+
+That creates a surprisingly simple problem:
 
 > **"Is my laptop still under warranty?"**
 
-can mean manually searching through old files, finding the receipt,
-checking the purchase date, finding the warranty terms and calculating
-whether the warranty is still valid.
-
-### WarrantyVault turns that entire process into a pipeline.
+To answer that manually, a user may need to:
 
 ```text
-             📄 RECEIPT
-                 │
-                 ▼
-        ┌─────────────────┐
-        │  AI / VISION    │
-        │   PROCESSING    │
-        └────────┬────────┘
-                 │
-          extraction fails?
-                 │
-                 ▼
-        ┌─────────────────┐
-        │    PaddleOCR    │
-        │    FALLBACK     │
-        └────────┬────────┘
-                 │
-                 ▼
-        ┌─────────────────┐
-        │ STRUCTURED DATA │
-        └────────┬────────┘
-                 │
-                 ▼
-        ┌─────────────────┐
-        │ WARRANTY ENGINE │
-        └────────┬────────┘
-                 │
-                 ▼
-        ┌─────────────────┐
-        │  DIGITAL ASSET  │
-        │     WALLET      │
-        └────────┬────────┘
-                 │
-          ┌──────┴──────┐
-          ▼             ▼
-      🔎 SEARCH      🤖 ASSISTANT
+Find the receipt
+      ↓
+Open the document
+      ↓
+Identify the product
+      ↓
+Find the purchase date
+      ↓
+Find the warranty period
+      ↓
+Calculate the warranty expiry
+      ↓
+Determine the current status
