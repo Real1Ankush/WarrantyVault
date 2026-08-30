@@ -40,46 +40,22 @@ WarrantyVault turns that document into a structured, searchable asset containing
 
 ```mermaid
 flowchart LR
-    A[Receipt / Invoice] --> B[Vision Processing]
-    B -->|Success| C[Structured Extraction]
-    B -->|Failure| D[PaddleOCR]
+    A[Receipt] --> B[Vision]
+    B --> C[Extract]
+    B --> D[PaddleOCR]
     D --> C
-
-    C --> E[Warranty Extraction]
-    E --> F[(Asset + Document)]
-
-    F --> G[Semantic Search]
+    C --> E[Warranty]
+    E --> F[(Database)]
+    F --> G[Search]
     F --> H[AI Assistant]
 
-    I[Ollama Local LLM] --> C
+    I[Ollama] --> C
     I --> H
 ```
 
-### One document. Multiple intelligence layers.
+**Upload → Understand → Extract → Store → Search → Ask**
 
-```text
-Receipt
-   │
-   ▼
-Vision Processing
-   │
-   ├── success ──────────────┐
-   │                         │
-   └── failure → PaddleOCR ──┤
-                             ▼
-                      Receipt Extraction
-                             │
-                             ▼
-                      Warranty Extraction
-                             │
-                             ▼
-                      Structured Asset
-                        ┌────┴────┐
-                        ▼         ▼
-                     Search    Assistant
-```
-
----
+The pipeline combines visual processing, OCR fallback, local LLM intelligence, structured storage, semantic search, and a natural-language assistant.
 
 ## Why It's More Than OCR
 
